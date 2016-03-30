@@ -195,6 +195,12 @@ typedef NS_ENUM(NSInteger, MGSwipeEasingFunction) {
  **/
 -(void) swipeTableCellWillEndSwiping:(MGSwipeTableCell *) cell;
 
+/**
+ * Called when the cell's pan gesture tracks touches.
+ * Also provides info when the cell is expanding.
+ **/
+- (void) swipeTableCell:(MGSwipeTableCell *)cell trackPanGesture:(UIPanGestureRecognizer *)panGesture expanding:(BOOL)isExpanding;
+
 @end
 
 

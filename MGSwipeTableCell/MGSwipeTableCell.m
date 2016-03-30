@@ -1183,6 +1183,10 @@ static inline CGFloat mgEaseInOutBounce(CGFloat t, CGFloat b, CGFloat c) {
 
 -(void) panHandler: (UIPanGestureRecognizer *)gesture
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(swipeTableCell:trackPanGesture:expanding:)]) {
+        [_delegate swipeTableCell:self trackPanGesture:gesture expanding:self.swipeState == MGSwipeStateExpandingRightToLeft];
+    }
+    
     CGPoint current = [gesture translationInView:self];
     
     if (gesture.state == UIGestureRecognizerStateBegan) {
